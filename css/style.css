@@ -1,0 +1,139 @@
+/*
+   $ TEAM    : https://instagram.com/darkxcode_
+   $ AUTHOR  : https://t.me/zlaxtert 
+   $ CODE    : https://t.me/zexkings 
+   $ DESIGN  : https://t.me/danielsmt 
+   $ SITE    : https://darkxcode.site/
+   $ VERSION : 1.0
+*/
+:root {
+    --netflix-red: #e50914;
+    --netflix-dark: #141414;
+    --netflix-gray: #808080;
+    --netflix-light: #f5f5f1;
+}
+
+body {
+    background-color: var(--netflix-dark);
+    color: var(--netflix-light);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    border-bottom: 1px solid var(--netflix-gray);
+}
+
+.navbar-brand {
+    color: var(--netflix-red) !important;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--netflix-gray);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: rgba(20, 20, 20, 0.9);
+    border-bottom: 1px solid var(--netflix-gray);
+    font-weight: bold;
+}
+/*
+   $ TEAM    : https://instagram.com/darkxcode_
+   $ AUTHOR  : https://t.me/zlaxtert 
+   $ CODE    : https://t.me/zexkings 
+   $ DESIGN  : https://t.me/danielsmt 
+   $ SITE    : https://darkxcode.site/
+   $ VERSION : 1.0
+*/
+.btn-netflix {
+    background-color: var(--netflix-red);
+    color: white;
+    border: none;
+}
+
+.btn-netflix:hover {
+    background-color: #f40612;
+    color: white;
+}
+
+.form-control, .form-select {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--netflix-gray);
+    color: var(--netflix-light);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--netflix-red);
+    color: var(--netflix-light);
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+}
+
+.result-section {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.success-item {
+    border-left: 4px solid #28a745;
+}
+
+.valid-item {
+    border-left: 4px solid #ffc107;
+}
+
+.die-item {
+    border-left: 4px solid #dc3545;
+}
+
+.account-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.progress {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+    background-color: var(--netflix-red);
+}
+
+footer {
+    border-top: 1px solid var(--netflix-gray);
+    padding: 20px 0;
+    margin-top: 30px;
+}
+/*
+   $ TEAM    : https://instagram.com/darkxcode_
+   $ AUTHOR  : https://t.me/zlaxtert 
+   $ CODE    : https://t.me/zexkings 
+   $ DESIGN  : https://t.me/danielsmt 
+   $ SITE    : https://darkxcode.site/
+   $ VERSION : 1.0
+*/
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--netflix-red);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f40612;
+}

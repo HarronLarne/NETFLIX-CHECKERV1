@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Bulk Checker | DARKXCODE</title>
+    <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!--
+   $ TEAM    : https://instagram.com/darkxcode_
+   $ AUTHOR  : https://t.me/zlaxtert 
+   $ CODE    : https://t.me/zexkings 
+   $ DESIGN  : https://t.me/danielsmt 
+   $ SITE    : https://darkxcode.site/
+   $ VERSION : 1.0
+-->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" height="30" class="d-inline-block align-text-top me-2">
+                Bulk Checker
+            </a>
+            <button class="btn btn-netflix ms-auto" id="toggleTheme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-cog me-2"></i>Configuration
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="apikey" class="form-label">API Key <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="apikey"  placeholder="apikey***********" required>
+                            <div class="form-text">How to get API key: contact <a href="https://t.me/zlaxtert" target="_blank" class="text-info">ZLAXTERT</a></div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="proxy" class="form-label">Proxy <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="proxy" rows="2" placeholder="IP:PORT, one per line" required></textarea>
+                            <div class="form-text">Format: IP:PORT (e.g., 192.168.1.1:8080)</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="proxyAuth" class="form-label">Proxy Authentication (optional)</label>
+                            <input type="text" class="form-control" id="proxyAuth" placeholder="username:password">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="proxyType" class="form-label">Proxy Type <span class="text-danger">*</span></label>
+                            <select class="form-select" id="proxyType" required>
+                                <option value="">Select proxy type</option>
+                                <option value="http">HTTP</option>
+                                <option value="https">HTTPS</option>
+                                <option value="socks4">SOCKS4</option>
+                                <option value="socks5">SOCKS5</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="accountList" class="form-label">Account List <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="accountList" rows="4" placeholder="EMAIL|PASSWORD or EMAIL:PASSWORD" required></textarea>
+                            <div class="form-text">Format: EMAIL|PASSWORD or EMAIL:PASSWORD (e.g., example@example.com|Password123)</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="fileUpload" class="form-label">Or upload TXT file</label>
+                            <input type="file" class="form-control" id="fileUpload" accept=".txt">
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="useRandomProxy">
+                            <label class="form-check-label" for="useRandomProxy">Use random proxy from list</label>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-netflix" id="startCheck">
+                                <i class="fas fa-play-circle me-2"></i>Start Checking
+                            </button>
+                            <button class="btn btn-secondary" id="stopCheck" disabled>
+                                <i class="fas fa-stop-circle me-2"></i>Stop Checking
+                            </button>
+                        </div>
+                    </div>
+                </div>
+<!--
+   $ TEAM    : https://instagram.com/darkxcode_
+   $ AUTHOR  : https://t.me/zlaxtert 
+   $ CODE    : https://t.me/zexkings 
+   $ DESIGN  : https://t.me/danielsmt 
+   $ SITE    : https://darkxcode.site/
+   $ VERSION : 1.0
+-->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-info-circle me-2"></i>Checking Progress
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <span>Total: <span id="totalAccounts">0</span></span>
+                                <span>Checked: <span id="checkedAccounts">0</span></span>
+                                <span>Remaining: <span id="remainingAccounts">0</span></span>
+                            </div>
+                            <div class="progress mt-2">
+                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progressBar"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <div class="text-success">
+                                    <i class="fas fa-check-circle fa-2x"></i>
+                                    <div>Success: <span id="successCount">0</span></div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="text-warning">
+                                    <i class="fas fa-exclamation-circle fa-2x"></i>
+                                    <div>Valid Email: <span id="validCount">0</span></div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="text-danger">
+                                    <i class="fas fa-times-circle fa-2x"></i>
+                                    <div>Die: <span id="dieCount">0</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-check-circle text-success me-2"></i>SUCCESS LOGIN</span>
+                        <div>
+                            <button class="btn btn-sm btn-success me-1" id="copySuccess">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" id="clearSuccess">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body result-section" id="successResults">
+                        <div class="text-center text-muted py-3">No successful logins yet</div>
+                    </div>
+                </div>
+                
+                <div class="card mt-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-exclamation-circle text-warning me-2"></i>VALID EMAIL</span>
+                        <div>
+                            <button class="btn btn-sm btn-success me-1" id="copyValid">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" id="clearValid">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body result-section" id="validResults">
+                        <div class="text-center text-muted py-3">No valid emails yet</div>
+                    </div>
+                </div>
+                
+                <div class="card mt-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-times-circle text-danger me-2"></i>DIE</span>
+                        <div>
+                            <button class="btn btn-sm btn-success me-1" id="copyDie">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" id="clearDie">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body result-section" id="dieResults">
+                        <div class="text-center text-muted py-3">No die accounts yet</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--
+   $ TEAM    : https://instagram.com/darkxcode_
+   $ AUTHOR  : https://t.me/zlaxtert 
+   $ CODE    : https://t.me/zexkings 
+   $ DESIGN  : https://t.me/danielsmt 
+   $ SITE    : https://darkxcode.site/
+   $ VERSION : 1.0
+-->
+    <footer class="mt-5">
+        <div class="container text-center">
+            <p>&copy; <span id="currentYear"></span> <a href="https://instagram.com/darkxcode_" target="_blank">DARKXCODE</a>. All Rights Reserved.</p>
+            <p>Contact Author: <a href="https://t.me/zlaxtert" target="_blank" class="text-info">ZLAXTERT</a></p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/call.js" type="text/javascript"></script>
+</body>
+</html>
